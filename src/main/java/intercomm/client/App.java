@@ -1,6 +1,7 @@
 package intercomm.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -20,10 +21,11 @@ public class App implements EntryPoint {
 
     public void onModuleLoad() {
         Storage storage = Browser.getWindow().getLocalStorage();
+        RootPanel.get().add(new HTML("<h3>Open more tabs to send <i>messages</i> and <i>mouse positions<i>!</h3>"));
 
         // text box which synchronizes its text with the active tab
         HorizontalPanel panel = new HorizontalPanel();
-        panel.add(new InlineLabel("msg:"));
+        panel.add(new InlineLabel("message:"));
         TextBox text = new TextBox(); panel.add(text);
         text.addKeyUpHandler(e -> {
             String msg = text.getValue();
